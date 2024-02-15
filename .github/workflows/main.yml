@@ -10,15 +10,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Nochmal schauen
-        run: |
-          ls
-
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # 1) Schritt, der "npm clean-install" ausführt, um die Abhängigkeiten zu installieren
-      # 2) Schritt, der "npm run build" ausführt, um die Website zu erstellen
-      # 3) Schritt, der mit "ls -R dist/" die erzeugten Dateien auflistet
+      - name: Build
+        run: |
+          npm clean-install
+          npm run build
+          ls -R dist/
