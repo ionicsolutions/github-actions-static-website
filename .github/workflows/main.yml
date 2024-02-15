@@ -42,9 +42,12 @@ jobs:
       - name: Anschauen
         run: |
           ls -R dist/
+          
+      - name: Credentials anschauen
+        run: |
+          echo "${{ vars.BUCKET_NAME }}"
+          echo "${{ secrets.AWS_ACCESS_KEY_ID }}"
+          echo "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
       
-
-      # Benötigen die fertig gebaute Website
-      # Credentials/Zugangsdaten für unseren Webserver (S3-Bucket bei AWS)
       # Einloggen beim Webserver
       # Dateien auf den Webserver kopieren
